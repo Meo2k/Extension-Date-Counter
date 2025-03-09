@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông báo đặc biệt!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 100px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgb(0 0 0 / 20%);
+            width: 80%;
+            height: 80%;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        p#messageTarget {
+            font-size: 30px;
+            font-family: cursive;
+        }
+        .close-btn {
+            margin: 10px 0 21px 0;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            background: #0056b3;
+        }
+        .love {
+            font-size: 5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, red, orange, pink, violet, white);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientEffect 3s infinite ease-in-out;
+        }
+        @keyframes gradientEffect {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="icon.png" alt="Logo" class="logo">
+        <h1>Chúc mừng bạn!</h2>
+        <p class="messageTarget" id="messageTarget">Hôm nay là ngày đặc biệt! Hãy tận hưởng từng khoảnh khắc.</p>
+        <button class="close-btn" >Đóng</button>
+        <div class="love">LOVE</div>
+    </div>
+    <script src="notifications.js"></script>
+</body>
+</html>

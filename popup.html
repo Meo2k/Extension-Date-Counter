@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Counter</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <h2>Date Counter</h2>
+
+    <label for="startDate">Ngày bắt đầu:</label>
+    <input type="date" id="startDate">
+
+    <label for="targetDate">Ngày mục tiêu:</label>
+    <input type="date" id="targetDate">
+
+    <button id="saveDate">Lưu ngày</button>
+    
+    <h3>Số ngày đã trôi qua: <span id="daysPassed">0</span></h3>
+    <h3>Số ngày còn lại: <span id="daysLeft">0</span></h3>
+    <button id="clearButton">Clear</button>
+
+    <button id="settingsButton">⚙️ Cài đặt</button>
+
+    <script src="popup.js"></script>
+</body>
+</html>

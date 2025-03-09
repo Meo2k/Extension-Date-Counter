@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài đặt</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cài đặt thông báo</h2>
+        <label for="notifyDays">Thông báo trước (ngày):</label>
+        <input type="number" id="notifyDays" min="0" value="0">
+        <label for="notifyMessage">Nội dung thông báo trước (ngày):</label>
+        <textarea type="text" id="notifyMessage" placeholder="Nhập nội dung..."></textarea><br/>
+        <label for="notifyMessageTarget">Thông báo trong Ngày Target:</label>
+        <textarea type="text" id="notifyMessageTarget" placeholder="Nhập nội dung..."></textarea><br/>
+        <div class="cusBtn">
+            <button id="saveSettings">Lưu cài đặt</button>
+            <button id="constructorBtn">Hướng dẫn</button>
+        </div>
+    </div>
+    <div class="text">Sometimes life will be difficult, but try to live and smile brightly.</div>
+
+    <!-- Modal -->
+    <div id="guideModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span><br/><br/>
+            <p style="font-size: 18px;">Nhập số ngày để nhận thông báo trước sự kiện. Điền nội dung tin nhắn và tin nhắn thông báo trong ngày mục tiêu.<br/> Ngoài ra bạn có thể dùng cú pháp <br/>"{day}" để hiển thị số ngày còn lại trong phần thông báo !!</p>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>
