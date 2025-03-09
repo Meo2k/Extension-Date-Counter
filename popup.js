@@ -55,6 +55,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Mở trang cài đặt khi nhấn "Settings"
     settingsButton.addEventListener("click", function () {
-        chrome.tabs.create({ url: "settings.html" });
+    chrome.runtime.openOptionsPage(); 
     });
+
+    function updateDaysCount() {
+    const startDate = new Date(startDateInput.value);
+    const targetDate = new Date(targetDateInput.value);
+    const today = new Date();
+
+    let dayPass = Math.max(0, Math.floor((today - startDate) / (1000 * 60 * 60 * 24))); 
+    let dayLeft = Math.max(0, Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24)));
+
+    daysPassedSpan.textContent = isNaN(dayPass) ? 0 : dayPass;
+    daysLeftSpan.textContent = isNaN(dayLeft) ? 0 : dayLeft;
+
+    // Tính số Chủ Nhật còn lại
+    let sundaysLeft = 0;
+    let tempDate = new Date(today);
+    
+    while (tempDate <= targetDate) {
+        if (tempDate.getDay() === 0) { // Chủ Nhật có getDay() === 0
+            sundaysLeft++;
+        }
+        tempDate.setDate(tempDate.getDate() + 1);
+    }
+
+    // Hiển thị số Chủ Nhật còn lại
+    document.getElementById("sundaysLeft").textContent = isNaN(sundaysLeft) ? 0 : sundaysLeft;
+}
+
+
 });

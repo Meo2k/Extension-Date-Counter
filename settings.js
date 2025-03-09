@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const saveSettingsButton = document.getElementById("saveSettings");
     const ConstructorBtn = document.getElementById("constructorBtn");
     const notifyMessageTarget = document.getElementById("notifyMessageTarget");
-    const guideText = document.getElementById("guideText"); // Lấy phần tử hướng dẫn
+    const guideText = document.getElementById("guideText");
     const modal = document.getElementById("guideModal");
     const closeBtn = document.querySelector(".close");
 
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const today = new Date();
 
         let dayLeft = targetDate ? Math.ceil((targetDate - today) / (1000 * 60 * 60 * 24)) : 0;
-        let distanceDay = Math.max(0, dayLeft); // Đảm bảo không có giá trị âm
+        let distanceDay = Math.max(0, dayLeft);
 
         notifyDaysInput.min = 0;
         notifyDaysInput.max = distanceDay;
@@ -42,20 +42,24 @@ document.addEventListener("DOMContentLoaded", function () {
             notifyTarget: notifyMessageTarget.value
         }, function () {
             alert("Cài đặt đã lưu!");
-            setTimeout(() => window.close(), 500);
+            chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                let currentTab = tabs[0];
+                if (currentTab && currentTab.url.includes("chrome-extension://")) {
+                    chrome.tabs.remove(currentTab.id);
+                }
+            });
         });
     });
 
     // Sự kiện khi ấn nút ConstructorBtn
     ConstructorBtn.addEventListener("click", function () {
-        modal.style.display = "block"; // Hiển thị modal
+        modal.style.display = "block";
     });
 
     closeBtn.addEventListener("click", function () {
-        modal.style.display = "none"; // Đóng modal khi nhấn nút X
+        modal.style.display = "none";
     });
 
-    // Đóng modal khi nhấn ra ngoài
     window.addEventListener("click", function (event) {
         if (event.target === modal) {
             modal.style.display = "none";

@@ -8,6 +8,10 @@ chrome.runtime.onInstalled.addListener(() => {
     checkAndNotify();
 });
 
+
+
+
+
 // Hàm kiểm tra & hiển thị thông báo
 function checkAndNotify() {
     chrome.storage.sync.get(["targetDate", "notifyDays", "notifyMessage", "dismissed"], function (data) {
