@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Date Counter",
+  "version": "1.2",
+  "description": "Extension đếm ngày và hiển thị số ngày còn lại so với ngày mục tiêu",
+  "permissions": ["storage", "notifications", "tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
